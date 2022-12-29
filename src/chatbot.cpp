@@ -42,12 +42,10 @@ ChatBot::~ChatBot()
     }
 }
 
-//// STUDENT CODE
-////
 // copy assignment operator
 ChatBot &ChatBot::operator=(const ChatBot &other)
 {
-    std::cout << "CHATBOT copy assignment operator" << std::endl;
+    std::cout << "ChatBot copy assignment operator" << std::endl;
     if (this == &other)
     {
         return *this;
@@ -62,7 +60,7 @@ ChatBot &ChatBot::operator=(const ChatBot &other)
 // copy constructor
 ChatBot::ChatBot(const ChatBot &other)
 {
-    std::cout << "CHATBOT copy constructor" << std::endl;
+    std::cout << "ChatBot copy constructor" << std::endl;
     _image = other._image;
     _chatLogic = other._chatLogic;
     _rootNode = other._rootNode;
@@ -72,7 +70,7 @@ ChatBot::ChatBot(const ChatBot &other)
 // move assignement operator
 ChatBot &ChatBot::operator=(ChatBot &&other)
 {
-    std::cout << "CHATBOT move assignment operator" << std::endl;
+    std::cout << "ChatBot move assignment operator" << std::endl;
     if (this == &other)
     {
         return *this;
@@ -94,7 +92,7 @@ ChatBot &ChatBot::operator=(ChatBot &&other)
 // move constructor
 ChatBot::ChatBot(ChatBot &&other)
 {
-    std::cout << "CHATBOT move constructor" << std::endl;
+    std::cout << "ChatBot move constructor" << std::endl;
     _image = std::move(other._image);
     _chatLogic = other._chatLogic;
     _rootNode = other._rootNode;
@@ -106,9 +104,6 @@ ChatBot::ChatBot(ChatBot &&other)
     other._rootNode = nullptr;
     other._currentNode = nullptr;
 }
-
-////
-//// EOF STUDENT CODE
 
 void ChatBot::ReceiveMessageFromUser(std::string message)
 {
