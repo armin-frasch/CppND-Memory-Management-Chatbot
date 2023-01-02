@@ -31,14 +31,14 @@ void GraphNode::AddEdgeToChildNode(std::unique_ptr<GraphEdge> edge)
 void GraphNode::MoveChatbotHere(ChatBot&& chatbot)
 {
     std::cout << "expect move assignment operator" << std::endl;
-    _chatBot = std::move(chatbot);
-    _chatBot.SetCurrentNode(this);
+    _chatBot = std::make_unique<ChatBot>(std::move(chatbot));
+    _chatBot->SetCurrentNode(this);
 }
 
 void GraphNode::MoveChatbotToNewNode(GraphNode *newNode)
 {
     std::cout << "expect move constructor" << std::endl;
-    newNode->MoveChatbotHere(std::move(_chatBot));
+    newNode->MoveChatbotHere(std::move(*_chatBot));
 }
 
 GraphEdge *GraphNode::GetChildEdgeAtIndex(int index)
